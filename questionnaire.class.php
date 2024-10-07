@@ -3923,7 +3923,7 @@ class questionnaire {
                 // Just in case a question pertaining to a section has been deleted or made not required
                 // after being included in scorecalculation.
                 if (isset($qscore[$qid])) {
-                    $key = ($key == 0) ? 1 : $key;
+                    $key = empty($key) ? 1 : $key;
                     $score[$section] += round($qscore[$qid] * $key);
                     $maxscore[$section] += round($qmax[$qid] * $key);
                     if ($compare  || $allresponses) {
